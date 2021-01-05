@@ -1,0 +1,18 @@
+﻿@model Actividad1U4_171G0250.Models.Usuario
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_Layout";
+}
+
+<h3>Confirma tu cuenta</h3>
+
+<section class="text-center">
+    <p>Hemos enviado una clave de confirmacion de cuenta a tu correo</p>
+    <form method="post" asp-controller="Home" asp-action="ActivacionDeCuenta">
+        <label>Introducir clave</label>
+        <input type="number" required name="clave" /> <br />
+        <input type="submit" value="Activar cuenta" />
+    </form>
+</section>

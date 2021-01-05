@@ -1,0 +1,31 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+
+<h3>Sesion iniciada</h3>
+
+<section class="text-center">
+    <p>Usuario: @User.Claims.FirstOrDefault(x => x.Type == "Nombre").Value</p>
+    <a asp-controller="Home" asp-action="CambioDeContraseña">
+        <input type="button" value="Cambiar contraseña" />
+    </a>
+    <a asp-controller="Home" asp-action="CierreDeSesion">
+        <input type="button" value="Finalizar sesion" />
+    </a>
+    <a href="javascript:eliminar()">
+        <input type="button" onclick="eliminar()" value="Eliminar cuenta" />
+    </a>
+</section>
+
+<form method="post" asp-controller="Home" asp-action="Eliminar">
+    <input type="email" hidden name="correo" value="@User.Claims.FirstOrDefault(x=>x.Type=="Correo electronico").Value" />
+</form>
+
+<script>
+    function eliminar() {
+        if (confirm('Esta cuenta será eliminada, ¿estás seguro?')) {
+            document.querySelector("form").submit();
+        }
+    }
+</script>

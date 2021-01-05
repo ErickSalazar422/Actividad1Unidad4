@@ -1,0 +1,49 @@
+﻿@model Actividad1U4_171G0250.Models.Usuario
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_Layout";
+}
+
+<h1>Registro</h1>
+<form method="post" asp-controller="Home" asp-action="Registro" class="text-center">
+
+    <div>
+        <label>Ingrese sus datos de registro </label>
+        <br />
+        <label>Correo Electonico:</label>
+        <br />
+        <input type="email" required asp-for="Correo" /><br />
+        <br />
+        <label>Nombre:</label> <br />
+
+        <input type="text" required asp-for="Usuario1" /><br />
+        <br />
+
+
+        <label>Contraseña:</label>
+        <br />
+
+        <input type="password" asp-for="Contrasena" name="contra" required /><br />
+        <br />
+
+        <label>Confirma tu contraseña:</label>
+        <br />
+
+        <input type="password" name="confContra" required />
+
+
+    </div>
+
+    <p>
+        @Html.ValidationSummary()
+    </p>
+    <input type="submit" value="Registrarme" />
+    Ya tienes una cuenta?<br />
+    <a asp-controller="Home" asp-action="InicioDeSesion">
+        <input type="button" value="Iniciar Sesion" />
+    </a>
+
+</form>
+
+

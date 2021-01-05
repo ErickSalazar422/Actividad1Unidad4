@@ -1,0 +1,17 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_Layout";
+}
+
+<h2>Recuperar contraseña</h2>
+<section class="recuperar">
+    <form method="post" asp-action="RecuperarContraseña" asp-controller="Home" class="text-center">
+        <label>Correo:</label>
+        <input type="email" required name="Correo" /><br />
+        <input type="submit" value="Recuperar Contraseña" />
+
+        @Html.ValidationSummary()
+        <p>Recibiras un correo  con una contraseña para iniciar sesión</p>
+    </form>
+</section>
